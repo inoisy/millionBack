@@ -15,32 +15,6 @@ module.exports = {
      *
      * @return {Object}
      */
-    // async find(ctx) {
-    //     // console.log("find -> ctx", ctx.query.user)
-    //     // console.log("find -> ctx.query", ctx.state.user.id)
-    //     let entities;
-    //     if (!ctx.state || !ctx.state.user || !ctx.state.user.id) {
-    //         return ctx.unauthorized(`You can't get this entry`);
-    //     }
-
-
-    //     if (ctx.query._q) {
-
-    //         entities = await strapi.services.order.search({
-    //             ...ctx.query,
-    //             user: ctx.state.user.id
-    //         });
-    //     } else {
-    //         entities = await strapi.services.order.find({
-    //             ...ctx.query,
-    //             user: ctx.state.user.id
-    //         });
-    //     }
-
-    //     return entities.map(entity => sanitizeEntity(entity, {
-    //         model: strapi.models.order
-    //     }));
-    // },
     async create(ctx) {
         // console.log("create -> ctx", ctx.request.body)
         const {
@@ -65,11 +39,11 @@ module.exports = {
         }
         console.log("create -> data", data)
         let entity = await strapi.services.order.create(data);
-        // if (!isTest) {
+
         try {
             await strapi.plugins['email'].services.email.send({
-                to: "inoisy@bk.ru",
-                from: "noreply@prodaem-kolbasu.ru",
+                to: process.env.MAIL_TO,
+                from: process.env.SMTP_USERNAME,
                 subject: `Новый заказ`,
                 text: contentText,
                 html: contentHTML
@@ -77,8 +51,6 @@ module.exports = {
         } catch (error) {
             console.log("create -> error", error)
         }
-        // }
-
         return sanitizeEntity(entity, {
             model: strapi.models.order
         });
