@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "advertisements",
+  "info": {
+    "name": "advertisement",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "img": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "startX": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "max": 1000,
+      "min": 0
+    },
+    "endX": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "max": 1000,
+      "min": 0
+    },
+    "startY": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "max": 1000,
+      "min": 0
+    },
+    "endY": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "max": 1000,
+      "min": 0
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
