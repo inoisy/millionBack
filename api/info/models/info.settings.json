@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "infos",
+  "info": {
+    "name": "info",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "about": {
+      "type": "richtext"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mail": {
+      "type": "email"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "showContacts": {
+      "type": "boolean"
+    },
+    "footerText": {
+      "type": "string"
+    }
+  }
+}
