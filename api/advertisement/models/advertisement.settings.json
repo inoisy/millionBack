@@ -26,29 +26,29 @@
     "startX": {
       "type": "integer",
       "required": true,
-      "unique": true,
-      "max": 1000,
+      "unique": false,
+      "max": 100,
       "min": 0
     },
     "endX": {
       "type": "integer",
       "required": true,
-      "unique": true,
-      "max": 1000,
+      "unique": false,
+      "max": 100,
       "min": 0
     },
     "startY": {
       "type": "integer",
       "required": true,
-      "unique": true,
-      "max": 1000,
+      "unique": false,
+      "max": 100,
       "min": 0
     },
     "endY": {
       "type": "integer",
       "required": true,
-      "unique": true,
-      "max": 1000,
+      "unique": false,
+      "max": 100,
       "min": 0
     },
     "link": {
