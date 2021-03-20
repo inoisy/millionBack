@@ -22,20 +22,24 @@ module.exports = {
             phone,
             message,
             email,
-            isTest = false,
+            companyName,
+            point
+            // isTest = false,
         } = ctx.request.body
         // console.log("create -> summa", summa)
 
         if (!name || !phone) return
 
-        const contentText = `Новый заказ от ${name} \n Телефон: ${phone} \n Имя: ${name} \n Сообщение: ${message} `
-        const contentHTML = `<p>Новый заказ от ${name}</p><p>Телефон: ${phone}</p><p>Имя: ${name}</p><p>Сообщение: ${message}</p>`
+        const contentText = `Новый заказ от ${name} \n Телефон: ${phone} \n Имя: ${name} \n Компания: ${companyName} \n Сообщение: ${message} \n Точка: ${point}  `
+        const contentHTML = `<p>Новый заказ от ${name}</p><p>Телефон: ${phone}</p><p>Имя: ${name}</p><p>Компания: ${companyName}</p><p>Сообщение: ${message}</p><p>Точка: ${point}</p>`
         // console.log("create -> busketHtml", busketHtml)
         const data = {
             phone,
             email,
             name,
             message,
+            companyName,
+            point
         }
         console.log("create -> data", data)
         let entity = await strapi.services.order.create(data);

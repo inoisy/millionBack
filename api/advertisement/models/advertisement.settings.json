@@ -26,28 +26,24 @@
     "startX": {
       "type": "integer",
       "required": true,
-      "unique": false,
       "max": 100,
       "min": 0
     },
     "endX": {
       "type": "integer",
       "required": true,
-      "unique": false,
       "max": 100,
       "min": 0
     },
     "startY": {
       "type": "integer",
       "required": true,
-      "unique": false,
       "max": 100,
       "min": 0
     },
     "endY": {
       "type": "integer",
       "required": true,
-      "unique": false,
       "max": 100,
       "min": 0
     },
