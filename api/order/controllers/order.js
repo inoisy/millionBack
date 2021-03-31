@@ -30,8 +30,9 @@ module.exports = {
 
         if (!name || !phone) return
 
-        const contentText = `Новый заказ от ${name} \n Телефон: ${phone} \n Имя: ${name} \n Компания: ${companyName} \n Сообщение: ${message} \n Точка: ${point}  `
-        const contentHTML = `<p>Новый заказ от ${name}</p><p>Телефон: ${phone}</p><p>Имя: ${name}</p><p>Компания: ${companyName}</p><p>Сообщение: ${message}</p><p>Точка: ${point}</p>`
+        const contentText = `Новый заказ от ${name} \n Телефон: ${phone} \n Email: ${email} \n  Имя: ${name} \n Компания: ${companyName} \n Сообщение: ${message} \n Точка: ${point}  `
+        const contentHTML = `<p>Новый заказ от ${name}</p><p>Телефон: ${phone}</p><p>Email: ${email}</p><p>Имя: ${name}</p><p>Компания: ${companyName}</p><p>Сообщение: ${message}</p><p>Точка: ${point}</p>`
+        // console.log("🚀 ~ file: order.js ~ line 35 ~ create ~ contentHTML", contentHTML)
         // console.log("create -> busketHtml", busketHtml)
         const data = {
             phone,
@@ -41,7 +42,7 @@ module.exports = {
             companyName,
             point
         }
-        console.log("create -> data", data)
+        // console.log("create -> data", data)
         let entity = await strapi.services.order.create(data);
 
         try {
